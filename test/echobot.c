@@ -11,11 +11,11 @@ static void update_cb(const telebot_message_t *message)
     char str[TELEBOT_MESSAGE_TEXT_SIZE];
     char chat_id[32];
     if (strstr(message->text, "/start")) {
-        snprintf(str, TELEBOT_MESSAGE_TEXT_SIZE, "Hello %s",
+        snprintf(str, TELEBOT_MESSAGE_TEXT_SIZE, "Hello %s, your diary for today: (this will display something in the future)\nWhat would you like to do?",
                 message->from.first_name);
     }
     else {
-        snprintf(str, TELEBOT_MESSAGE_TEXT_SIZE, "RE:%s", message->text);
+        snprintf(str, TELEBOT_MESSAGE_TEXT_SIZE, "Currently I'm only smart enough to repeat what you said:%s", message->text);
     }
     snprintf(chat_id, 32, "%d", message->chat.id);
 
